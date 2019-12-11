@@ -1,0 +1,167 @@
+
+<div style="
+margin:0 auto;
+border:1px solid red;
+   width: 100%; height: 320px; display: block"; id='root'>
+<div id='scale'>
+       <div id='question'> 
+           question</div>
+           <br />
+           <div id='line'>
+        <div id='options'> options</div>
+        </div>
+</div>
+</div>
+
+<style>
+    #scale button {
+    margin: 5px;
+    font-size: 14px;
+    border:1px solid #9f9f9f;
+    background-color: white;
+    color:#9f9f9f;
+    display: block;
+    }
+
+    @media (min-width: 1200px) {
+#scale button {
+    justify-content: space-evenly;
+    display: inline-flex;
+    }
+ }
+
+#line   {
+    width: 100%;
+    border: 1px solid red;
+    justify-content: space-evenly;
+    display: flex;
+}
+#question   {   
+    font-family: Arial;
+    color: #404040;
+    font-weight: 530;
+    justify-content: space-evenly;
+    display: flex;
+    margin: 0 auto;
+}
+  
+</style>
+<script>
+    let arr = 
+    {
+"title": "How much did you learn about cats?",
+"options": [
+{
+"title": "Not Much",
+"click_result": "survey",
+"survey": {
+"title": "Why did you not learn much?",
+"options": [
+{
+"title":"not easy to understand",
+"click_result": "Thanks!"
+},
+{
+"title": "hmm",
+"click_result": "Thanks!"
+}
+]
+}
+},
+{
+"title": "A Little",
+"click_result": "<div><div>Want to learn less?</div><div>Read 'blah bah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+{
+"title": "A Lot",
+"click_result": "<div><div>Want to learn enough?</div><div>Read 'blahb blah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+{
+"title": "Not Much",
+"click_result": "survey",
+"survey": {
+"title": "Why did you not learn much?",
+"options": [
+{
+"title":"not easy to understand",
+"click_result": "Thanks!"
+},
+{
+"title": "hmm",
+"click_result": "Thanks!"
+}
+]
+}
+},
+{
+"title": "A Little",
+"click_result": "<div><div>Want to learn less?</div><div>Read 'blah bah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+{
+"title": "A Lot",
+"click_result": "<div><div>Want to learn enough?</div><div>Read 'blahb blah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+{
+"title": "Not Much",
+"click_result": "survey",
+"survey": {
+"title": "Why did you not learn much?",
+"options": [
+{
+"title":"not easy to understand",
+"click_result": "Thanks!"
+},
+{
+"title": "hmm",
+"click_result": "Thanks!"
+}
+]
+}
+},
+{
+"title": "A Little",
+"click_result": "<div><div>Want to learn less?</div><div>Read 'blah bah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+{
+"title": "title",
+"click_result": "<div><div>Want to learn enough?</div><div>Read 'blahb blah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+{
+"title": "long title. really very long title",
+"click_result": "<div><div>Want to learn enough?</div><div>Read 'blahb blah'</div><a href='#' target='_blank'>GO</a></div>"
+},
+]
+}
+
+
+let a = arr.title
+question.innerText=a
+let n = function options(arr) {
+let question = document.getElementById('question')
+let options = document.getElementById('options')
+let scale = document.getElementById('scale')
+question.innerHTML=''
+options.innerHTML=''
+question.innerHTML=arr.title
+arr.options.map(function(x) {
+let button = document.createElement('button')
+button.innerHTML = x.title
+button.onclick=function()   {
+if (x[x.click_result]===undefined)  {
+    question.innerHTML=''
+    options.innerHTML=''
+    options.innerHTML=x.click_result
+}
+   else {
+    event.preventDefault();
+    n(x[x.click_result])
+       
+   }
+}
+options.appendChild(button)    
+}
+)  
+}
+n(arr)
+
+</script>
