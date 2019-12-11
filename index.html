@@ -1,18 +1,15 @@
-
-<div
- id='root'>
-<div id='scale'>
-       <div id='question'> 
-           question</div>
+<div >
+    <div id='widget' >
+       <div id='question'> question</div>
            <br />
-           <div id='line'>
-        <div id='options'> options</div>
-        </div>
-</div>
+      <div id='line'>
+          <div id='content'> options</div>
+    </div>
+    </div>
 </div>
 
 <style>
-    #scale button {
+    #widget button {
     margin: 5px;
     font-size: 14px;
     border:1px solid #9f9f9f;
@@ -20,17 +17,14 @@
     color:#9f9f9f;
     display: block;
     }
-
     @media (min-width: 1200px) {
-#scale button {
+#widget button {
     justify-content: space-evenly;
     display: inline-flex;
     }
  }
-
 #line   {
     width: 100%;
-    border: 1px solid red;
     justify-content: space-evenly;
     display: flex;
 }
@@ -45,16 +39,16 @@
   
 </style>
 <script>
-    let arr = 
+    let data = 
     {
 "title": "How much did you learn about cats?",
-"options": [
+"content": [
 {
 "title": "Not Much",
 "click_result": "survey",
 "survey": {
 "title": "Why did you not learn much?",
-"options": [
+"content": [
 {
 "title":"not easy to understand",
 "click_result": "Thanks!"
@@ -79,7 +73,7 @@
 "click_result": "survey",
 "survey": {
 "title": "Why did you not learn much?",
-"options": [
+"content": [
 {
 "title":"not easy to understand",
 "click_result": "Thanks!"
@@ -104,7 +98,7 @@
 "click_result": "survey",
 "survey": {
 "title": "Why did you not learn much?",
-"options": [
+"content": [
 {
 "title":"not easy to understand",
 "click_result": "Thanks!"
@@ -130,36 +124,29 @@
 },
 ]
 }
-
-
-let a = arr.title
-question.innerText=a
-let n = function options(arr) {
+let display= function (data) {
 let question = document.getElementById('question')
-let options = document.getElementById('options')
-let scale = document.getElementById('scale')
+let content = document.getElementById('content')
 question.innerHTML=''
-options.innerHTML=''
-question.innerHTML=arr.title
-arr.options.map(function(x) {
+content.innerHTML=''
+question.innerHTML=data.title
+data.content.map(function(item) {
 let button = document.createElement('button')
-button.innerHTML = x.title
+button.innerHTML = item.title
+let result = item[item.click_result]
 button.onclick=function()   {
-if (x[x.click_result]===undefined)  {
+if (result===undefined)  {
     question.innerHTML=''
-    options.innerHTML=''
-    options.innerHTML=x.click_result
+    content.innerHTML=''
+    content.innerHTML=item.click_result
 }
    else {
-    event.preventDefault();
-    n(x[x.click_result])
-       
+    display(result) 
    }
 }
-options.appendChild(button)    
+content.appendChild(button)    
 }
 )  
 }
-n(arr)
-
+display(data)
 </script>
