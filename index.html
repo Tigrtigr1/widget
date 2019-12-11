@@ -1,14 +1,29 @@
 <div >
     <div id='widget' >
-       <div id='question'> question</div>
-           <br />
-      <div id='line'>
-          <div id='content'> options</div>
+       <div class="line">
+           <div>
+    <div id='question'> question</div>
+    <div id='content'> options</div>
+           </div>
     </div>
-    </div>
+
+</div>
 </div>
 
 <style>
+    .line   {
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+}
+    #question   {   
+    margin: 5px;
+    font-family: Arial;
+    color: #404040;
+    font-weight: 530;
+    justify-content: space-evenly;
+    align-self:center;
+}
     #widget button {
     margin: 5px;
     font-size: 14px;
@@ -18,24 +33,18 @@
     display: block;
     }
     @media (min-width: 1200px) {
-#widget button {
+    #widget button {
+    justify-content: space-evenly;
+    display: inline-flex;
+    }
+    #question   {   
+    align-self:center;
     justify-content: space-evenly;
     display: inline-flex;
     }
  }
-#line   {
-    width: 100%;
-    justify-content: space-evenly;
-    display: flex;
-}
-#question   {   
-    font-family: Arial;
-    color: #404040;
-    font-weight: 530;
-    justify-content: space-evenly;
-    display: flex;
-    margin: 0 auto;
-}
+
+
   
 </style>
 <script>
