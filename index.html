@@ -1,11 +1,11 @@
-<div style='width:200px; height:500px'>
-    <iframe  id='myframe' src='https://textomate.com/res/test.html' width='100%' height='100%'
-        frameBorder='0'></iframe>
-</div>
-<script>
-let n = setInterval(function () {
-        var iframe = document.getElementById("myframe");
-        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        console.log(innerDoc.body);
-},100)
-</script>
+<html>
+<head></head>
+<body id='bodyF'>
+	<form id='form' method="post" enctype="multipart/form-data" action="/a/uploadMultiple">
+    	<input type="file" name="my_file[]" multiple>
+        <input type="submit" value="Upload">
+    </form>
+    <br>
+
+</body>
+</html
