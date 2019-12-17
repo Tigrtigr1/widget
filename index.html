@@ -171,6 +171,7 @@
                     mimeType: 'multipart/form-data',
                     processData: false,
                     success: function (rsp) {
+                        alert(1)
                         $scope.wordcount = angular.fromJson(rsp);
                         calculateSummary();
                         $scope.$apply();
@@ -179,6 +180,7 @@
                         $scope.resizeIframe();
                     },
                     error: function (error) {
+                        alert(0)
                         $scope.error = error.responseText;
                         $scope.$apply();
                         $("#progressSection").css("display", "none");
